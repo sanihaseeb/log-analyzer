@@ -18,10 +18,14 @@ export default function Layout({ children }: Props) {
       <header className="border-b border-ink-700 bg-ink-900/80 backdrop-blur sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-7 w-7 rounded-md bg-gradient-to-br from-indigo-400 to-violet-600" />
+            <img
+              src="/logo.png"
+              alt="Log Analyzer"
+              className="h-8 w-8 rounded-md"
+            />
             <span className="font-semibold tracking-tight">Log Analyzer</span>
             <span className="text-xs text-ink-400 hidden sm:inline">
-              Claude-powered triage
+              Gemini-powered triage
             </span>
           </div>
           <nav className="flex items-center gap-1">
@@ -37,7 +41,7 @@ export default function Layout({ children }: Props) {
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-8">{children}</main>
       <footer className="border-t border-ink-700 text-xs text-ink-400">
         <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between">
-          <span>Built with FastAPI, Claude, and React.</span>
+          <span>Built with FastAPI, Gemini, and React.</span>
           <span className="font-mono text-ink-500">v0.1.0</span>
         </div>
       </footer>

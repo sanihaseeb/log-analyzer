@@ -60,7 +60,7 @@ export default function AnalyzerPage() {
           Label (optional)
         </label>
         <input
-          className="w-full bg-ink-800 border border-ink-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full bg-ink-800 border border-ink-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
           placeholder="e.g. prod-orders-2026-04-18"
           value={label}
           onChange={(e) => setLabel(e.target.value)}
@@ -70,7 +70,7 @@ export default function AnalyzerPage() {
           Logs
         </label>
         <textarea
-          className="w-full h-80 bg-ink-800 border border-ink-700 rounded-md px-3 py-2 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full h-80 bg-ink-800 border border-ink-700 rounded-md px-3 py-2 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
           placeholder="Paste log lines here…"
           value={logs}
           onChange={(e) => setLogs(e.target.value)}
@@ -78,7 +78,7 @@ export default function AnalyzerPage() {
 
         <div className="flex items-center gap-3">
           <button
-            className="rounded-md bg-indigo-500 hover:bg-indigo-400 disabled:bg-ink-700 disabled:text-ink-400 px-4 py-2 text-sm font-medium transition-colors"
+            className="rounded-md bg-emerald-500 hover:bg-emerald-400 text-ink-900 disabled:bg-ink-700 disabled:text-ink-400 px-4 py-2 text-sm font-medium transition-colors"
             onClick={onAnalyze}
             disabled={loading || !logs.trim()}
           >
