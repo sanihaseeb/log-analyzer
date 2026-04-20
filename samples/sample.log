@@ -1,0 +1,29 @@
+2026-04-18 09:12:01.103 INFO  [order-svc] Received order request orderId=47291 user=u_8812
+2026-04-18 09:12:01.184 INFO  [order-svc] Validated order orderId=47291 total=129.99
+2026-04-18 09:12:01.402 ERROR [order-svc] Failed to publish OrderCreated to Kafka topic=orders.v1 err=org.apache.kafka.common.errors.TimeoutException: Expiring 1 record(s) for orders.v1-3:30006 ms has passed since batch creation
+2026-04-18 09:12:02.017 ERROR [order-svc] Failed to publish OrderCreated to Kafka topic=orders.v1 err=org.apache.kafka.common.errors.TimeoutException: Expiring 1 record(s) for orders.v1-3:30005 ms has passed since batch creation
+2026-04-18 09:12:02.900 ERROR [order-svc] Failed to publish OrderCreated to Kafka topic=orders.v1 err=org.apache.kafka.common.errors.TimeoutException: Expiring 1 record(s) for orders.v1-3:30004 ms has passed since batch creation
+2026-04-18 09:12:03.222 WARN  [order-svc] Retrying Kafka publish attempt=2 orderId=47291
+2026-04-18 09:12:03.811 ERROR [order-svc] Failed to publish OrderCreated to Kafka topic=orders.v1 err=org.apache.kafka.common.errors.TimeoutException
+2026-04-18 09:12:04.450 INFO  [payment-svc] Charge initiated orderId=47291 amount=129.99 gateway=stripe
+2026-04-18 09:12:05.812 ERROR [payment-svc] Stripe API returned 500 orderId=47291 reqId=req_9f32aa err="upstream temporarily unavailable"
+2026-04-18 09:12:06.051 WARN  [payment-svc] Retry scheduled attempt=1 in=500ms
+2026-04-18 09:12:06.613 ERROR [payment-svc] Stripe API returned 500 orderId=47291 reqId=req_9f32ab err="upstream temporarily unavailable"
+2026-04-18 09:12:07.105 ERROR [payment-svc] Stripe API returned 500 orderId=47291 reqId=req_9f32ac err="upstream temporarily unavailable"
+2026-04-18 09:12:07.614 ERROR [payment-svc] Exceeded retry budget orderId=47291 - marking order as FAILED
+2026-04-18 09:12:10.008 INFO  [auth-svc] Token refresh user=u_8812 scope=orders.read,orders.write
+2026-04-18 09:12:12.411 WARN  [auth-svc] Slow JWT verify duration=812ms keyset=https://login.internal/.well-known/jwks.json
+2026-04-18 09:12:13.019 WARN  [auth-svc] Slow JWT verify duration=744ms keyset=https://login.internal/.well-known/jwks.json
+2026-04-18 09:12:15.888 WARN  [auth-svc] Slow JWT verify duration=901ms keyset=https://login.internal/.well-known/jwks.json
+2026-04-18 09:12:19.200 ERROR [inventory-svc] java.lang.NullPointerException: Cannot invoke "Item.getSku()" because "item" is null
+	at com.example.inv.PickList.reserve(PickList.java:118)
+	at com.example.inv.PickList.process(PickList.java:64)
+	at com.example.inv.OrderHandler.handle(OrderHandler.java:41)
+2026-04-18 09:12:19.305 ERROR [inventory-svc] java.lang.NullPointerException: Cannot invoke "Item.getSku()" because "item" is null
+	at com.example.inv.PickList.reserve(PickList.java:118)
+2026-04-18 09:12:20.001 INFO  [order-svc] Order flow complete orderId=47292 latencyMs=214
+2026-04-18 09:12:21.500 INFO  [order-svc] Order flow complete orderId=47293 latencyMs=199
+2026-04-18 09:12:31.881 ERROR [db] Connection pool exhausted pool=orders active=50 idle=0 waiting=14
+2026-04-18 09:12:32.112 ERROR [db] Connection pool exhausted pool=orders active=50 idle=0 waiting=19
+2026-04-18 09:12:33.001 WARN  [db] Long-running query duration=5210ms statement="SELECT * FROM orders WHERE status = 'PENDING'"
+2026-04-18 09:12:45.713 INFO  [order-svc] Scheduled sweep completed pending=0

@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: log-analyzer-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: loguser
+      POSTGRES_PASSWORD: logpass
+      POSTGRES_DB: loganalyzer
+    ports:
+      - "5432:5432"
+    volumes:
+      - log-analyzer-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U loguser -d loganalyzer"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  log-analyzer-pg:
